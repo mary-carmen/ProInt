@@ -8,10 +8,10 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 const ListaAlumnos = () => {
     const [alumnos, setAlumnos] = useState([]);
 
-    // Definimos un arreglo de colores
+    // Definimos un arreglo de colores más fuertes y vivos
     const colores = [
-        '#a8dadc', '#f4a261', '#2a9d8f', '#e9c46a', '#264653', 
-        '#ffb4a2', '#9a8c98', '#e76f51', '#457b9d', '#c9ada7'
+        '#FF5733', '#33FF57', '#3357FF', '#FF33A5', '#A533FF',
+        '#FF8C33', '#33FFF1', '#FF3333', '#FF33F0', '#33FF9E'
     ];
 
     useEffect(() => {
@@ -49,9 +49,8 @@ const ListaAlumnos = () => {
                         labels: Object.keys(practicas),
                         datasets: [
                             {
-                                label: 'Promedio de Calificaciones',
+                                label: 'Calificaciones',
                                 data: Object.values(practicas).map(Number),
-                                // Asignamos un color distinto a cada estudiante
                                 backgroundColor: colores[index % colores.length],
                             },
                         ],
@@ -66,6 +65,7 @@ const ListaAlumnos = () => {
                                     </h5>
                                     <p className="card-text"><strong>Cuenta:</strong> {alumno.cuenta}</p>
                                     <p className="card-text"><strong>Nombre:</strong> {alumno.nombre}</p>
+                                    <p className="card-text"><strong>Promedio:</strong> {promedio}</p>
                                     <Bar data={chartData} />
                                     <div className="text-center mt-3">
                                         <button className={`btn ${aprobado ? 'btn-success' : 'btn-danger'}`}>
@@ -79,7 +79,7 @@ const ListaAlumnos = () => {
                 })}
             </div>
         </div>
-    );
+    );   
 };
 
 export default ListaAlumnos;
