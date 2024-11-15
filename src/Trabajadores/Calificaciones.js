@@ -37,7 +37,7 @@ const ListaAlumnos = () => {
     return (
         <div className="container mt-4">
             <h1 className="text-center" style={{ fontWeight: 'bold', fontSize: '2rem', letterSpacing: '1px' }}>
-                CALIFICACIONES DEL ING. ALEX RAMÍREZ GALINDO
+                CALIFICACIONES DEL ING. ALEX RAMÍREZ GALINDO.
             </h1>
             <div className="row">
                 {alumnos.map((alumno, index) => {
