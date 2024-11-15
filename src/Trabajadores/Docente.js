@@ -24,7 +24,7 @@ const ListaDocentes = () => {
         const interval = setInterval(fetchData, 1000);
         return () => clearInterval(interval);
     }, []);
-
+    
     const chartData = {
         labels: docentes.map((docente) => docente.nombre), // Eje X: nombres de docentes
         datasets: [

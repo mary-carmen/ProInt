@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import ListaDocentes from './Trabajadores/Docente';
+import ListaAlumnos from './Trabajadores/Calificaciones';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
