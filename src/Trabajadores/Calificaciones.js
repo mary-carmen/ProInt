@@ -8,6 +8,12 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 const ListaAlumnos = () => {
     const [alumnos, setAlumnos] = useState([]);
 
+    // Definimos un arreglo de colores
+    const colores = [
+        '#a8dadc', '#f4a261', '#2a9d8f', '#e9c46a', '#264653', 
+        '#ffb4a2', '#9a8c98', '#e76f51', '#457b9d', '#c9ada7'
+    ];
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -37,7 +43,7 @@ const ListaAlumnos = () => {
                 {alumnos.map((alumno, index) => {
                     const practicas = alumno.practicas;
                     const promedio = calcularPromedio(practicas);
-                    const aprobado = promedio >= 6;
+                    const aprobado = promedio >= 7;
 
                     const chartData = {
                         labels: Object.keys(practicas),
@@ -45,7 +51,8 @@ const ListaAlumnos = () => {
                             {
                                 label: 'Promedio de Calificaciones',
                                 data: Object.values(practicas).map(Number),
-                                backgroundColor: aprobado ? '#a8dadc' : '#f4a261',
+                                // Asignamos un color distinto a cada estudiante
+                                backgroundColor: colores[index % colores.length],
                             },
                         ],
                     };
